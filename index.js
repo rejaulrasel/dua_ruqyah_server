@@ -17,13 +17,13 @@ const db = new sqlite3.Database('./dua_main.sqlite', (err) => {
 });
 
 
-// app.get("/", (req, res) => {
-//     res.send("Welcome to Dua Ruqyah world");
-// })
+app.get("/", (req, res) => {
+    res.send("Welcome to Dua Ruqyah world");
+})
 
 
 // API to get all categories
-app.get('/', (req, res) => {
+app.get('/api/categories', (req, res) => {
     db.all('SELECT * FROM category', [], (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
